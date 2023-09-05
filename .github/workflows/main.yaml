@@ -59,7 +59,7 @@ jobs:
           scan-type: 'image'
           format: 'cyclonedx'
           output: 'cyclone.sbom.json'
-          image-ref: ttl.sh/${{ github.repository }}@${{ steps.build-push.outputs.digest }}
+          image-ref: ghcr.io/${{ github.repository }}@${{ steps.build-push.outputs.digest }}
 
       - name: Attest image
         run: cosign attest --yes --predicate cyclone.sbom.json --type cyclonedx ttl.sh/${{ github.repository }}@${{ steps.build-push.outputs.digest }}
